@@ -18,6 +18,8 @@ def _install_ruby_version(ctx, version):
 def _is_subpath(path, ancestors):
     """Determines if path is a subdirectory of one of the ancestors"""
     for ancestor in ancestors:
+        if path == ancestor:
+            return True
         if not ancestor.endswith("/"):
             ancestor += "/"
         if path.startswith(ancestor):
